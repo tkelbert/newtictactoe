@@ -1,6 +1,10 @@
 import random
 import time
 from rich import print
+from rich.console import Console
+from rich.rule import Rule
+
+console = Console()
 
 word_list = ["python", "javascript", "programming", "computer", "science"]
 secret_word = random.choice(word_list)
@@ -112,6 +116,7 @@ hangman.display_game_empty()
 hangman.display_blanks()
 runner = True
 while runner:
+    console.print(Rule("[bold red] New turn [/bold red]"))
     guess = hangman.get_guess()
     hangman.validate_guess(guess)
     hangman.print_corrent_letters()
